@@ -18,7 +18,13 @@ function displayData(photographers) {
     photographers.forEach((photographer) => {
         const photographerModel = photographerFactory(photographer);
         const userCardDOM = photographerModel.getUserCardDOM();
+        // const linkCard = document.createElement("a");
+        // const id = photographers.id;
+        // const photographerPage = `photographer.html?id=${id}`;
+        
+        // linkCard.setAttribute("href", photographerPage);
         photographersSection.appendChild(userCardDOM);
+        // linkCard.appendChild(contentCard);
     });
 };
 

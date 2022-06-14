@@ -3,9 +3,45 @@
 }
 
 .photograph-header {
+    display: flex;
+    align-items: center;
     background-color: #FAFAFA;
     height: 300px;
     margin: 0 100px;
+}
+
+.photograph-header-content {
+    width: 100%;
+    min-width: 800px;
+    margin: 30px 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.photograph-header-description {
+    display: flex;
+    flex-direction: column;
+}
+
+.photograph-header-title {
+    color: #D3573C;
+    margin: 5px 0;
+    font-size: 70px;
+    font-weight: 400;
+}
+
+.photograph-header-description span:nth-child(2) {
+    color: #901C1C;
+    font-size: 15px;
+}
+
+.photograph-header-content img {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .contact_button {

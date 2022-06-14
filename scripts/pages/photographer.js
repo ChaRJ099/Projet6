@@ -2,7 +2,7 @@ const url = new URL(window.location.href);
 const photographerId = parseInt(url.searchParams.get("id"));
 
     //Mettre le code JavaScript lié à la page photographer.html
-    async function getPhotographer(photographerId) {
+    async function getPhotographer() {
         // Penser à remplacer par les données récupérées dans le json
         const jsonFile = '../../data/photographers.json';
         fetch(jsonFile)
@@ -10,24 +10,21 @@ const photographerId = parseInt(url.searchParams.get("id"));
           return response.json()
         })
         .then((data) => {
-            displayData(data, photographerId);
+            displayData(data);
             
         })
     }
     
-    function displayData(data, photographerId) {
-        // const photographersSection = document.querySelector(".photographer_section");
-    
-        data.photographers.forEach((photographer) => {
-
-            
-            if(photographer.id === photographerId) {
+    function displayData(data) {
         
-                console.log(photographer.id);
+        data.photographers.forEach((photographer) => {
+            if(photographer.id === photographerId) {
+                const photographerModel = photographerFactory(photographer);
+                const userCardDOM = photographerModel.getUserCardDOM();
+                const photographHeader = document.querySelector(".photograph-header");
+
+                photographHeader.appendChild(userCardDOM);
             }
-            // const photographerModel = photographerFactory(photographer);
-            // const userCardDOM = photographerModel.getUserCardDOM();
-            // photographersSection.appendChild(userCardDOM);
         });
     };
     
