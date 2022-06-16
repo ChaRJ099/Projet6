@@ -8,20 +8,28 @@
           return response.json()
         })
         .then((data) => {
-            displayData(data);
+            displayMediaData(data);
             
         })
     }
     
-    function displayData(data) {
+    function displayMediaData(data) {
         
-        data.photographers.forEach((photographer) => {
-            if(photographer.id === photographerId) {
-                const photographerModel = photographerFactory(photographer);
-                const userCardDOM = photographerModel.getUserCardDOM();
-                const photographHeader = document.querySelector(".photograph-header");
+        data.media.forEach((media, photographers) => {
+            console.log("Data" + " " + data.photographers);
+            console.log("Media" + " " +media);
+            if(media.photographerid === photographers.id) {
 
-                photographHeader.appendChild(userCardDOM);
+                console.log("section")
+                // const photographerModel = mediaFactory(photographer);
+                // const userCardDOM = photographerModel.getUserCardDOM();
+                const photographGallery = document.querySelector(".photograph-gallery");
+                const test = document.createElement("div");
+                test.textContent = "hello";
+                test.style.backgroundColor = '#951c1c';
+
+                photographGallery.appendChild(test);
+
             }
         });
     };
