@@ -1,32 +1,29 @@
-function mediaFactory(data) {
-    const { name, portrait, city, country, tagline, price } = data;
+function mediaFactory(data, photographerName) {
+  console.log(photographerName);
+    const { title, image, likes, date, price } = data;
   
-    const picture = `assets/images/${portrait}`;
-    
+    const picture = `assets/images/${photographerName}/${image}`;
   
-    function getUserCardDOM() {
+    function getMediaCardDOM() {
       const article = document.createElement("article");
-      const img = document.createElement("img");
-      img.setAttribute("src", picture);
-      const nameCard = document.createElement("h2");
-      const taglineCard = document.createElement("span");
-      const locationCard = document.createElement("span");
+      const imgCard = document.createElement("img");
+      imgCard.setAttribute("src", picture);
+      const titleCard = document.createElement("h2");
+      const likesCard = document.createElement("span");
+      const dateCard = document.createElement("span");
       const priceCard = document.createElement("span");
-      const linkCard = document.createElement("a");
-      linkCard.setAttribute("href", photographerPage);
   
-      nameCard.textContent = name;
-      locationCard.textContent = country + ", " + city;
-      taglineCard.textContent = tagline;
+      titleCard.textContent = title;
+      likesCard.textContent = likes;
+      dateCard.textContent = date;
       priceCard.textContent = price + "€/jour";
   
-      article.appendChild(linkCard);
-      linkCard.appendChild(img);
-      linkCard.appendChild(nameCard);
-      article.appendChild(locationCard);
-      article.appendChild(taglineCard);
+      article.appendChild(imgCard);
+      article.appendChild(titleCard);
+      article.appendChild(likesCard);
+      article.appendChild(dateCard);
       article.appendChild(priceCard);
       return article;
     }
-    return { name, picture, getUserCardDOM };
+    return { title, picture, getMediaCardDOM };
   }
