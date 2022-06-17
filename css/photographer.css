@@ -7,12 +7,13 @@
     align-items: center;
     background-color: #FAFAFA;
     height: 300px;
+    min-width: 900px;
     margin: 0 100px;
 }
 
 .photograph-header-content {
     width: 100%;
-    min-width: 800px;
+    min-width: 840px;
     margin: 30px 30px;
     display: flex;
     flex-direction: row;
@@ -55,6 +56,35 @@
     background-color: #901C1C;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.photograph-gallery {
+    margin: 100px 100px 0 100px;
+    min-width: 900px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+
+}
+
+.photograph-gallery article {
+    min-width: 30%;
+}
+
+.img-small {
+    min-width: 100%;
+    width: auto;
+    min-height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.link-img-small {
+    display: flex;
+    align-items: start;
+    width: 280px;
+    height: 280px;
+    overflow: hidden;
 }
 
 .modal {
