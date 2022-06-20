@@ -32,6 +32,8 @@ let photographerName = '';
                 if(media.photographerId === photographerId) {
                     
                     const mediaModel = mediaFactory(media, photographerName);
+                    console.log("mediaModel");
+                    console.log(mediaModel);
                     const mediaCardDOM = mediaModel.getMediaCardDOM();
                     const photographGallery = document.querySelector(".photograph-gallery");
                     // const test = document.createElement("div");
