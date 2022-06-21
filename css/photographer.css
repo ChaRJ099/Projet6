@@ -58,6 +58,18 @@
     cursor: pointer;
 }
 
+.likes-price-box {
+    background-color: #901C1C;
+    color: #fff;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin-right: 20px;
+    padding: 10px;
+}
+
 .photograph-gallery {
     margin: 100px 100px 0 100px;
     min-width: 900px;
@@ -85,6 +97,17 @@
     width: 280px;
     height: 280px;
     overflow: hidden;
+}
+
+.footer-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.icon-card:hover {
+    cursor: pointer;
 }
 
 .modal {
