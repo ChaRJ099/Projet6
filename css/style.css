@@ -3,20 +3,22 @@
 body {
     font-family: "DM Sans", sans-serif;
     margin: 0;
+    padding: 0 100px;
 }
 
 
-header {
+.header-index {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     height: 90px;
+    min-width: 900px;
 }
 
 h1 {
     color: #901C1C;
-    margin-right: 100px;
+    /* margin-right: 100px; */
 }
 
 a:link {
@@ -34,7 +36,7 @@ a:focus-visible {
 
 .logo {
     height: 50px;
-    margin-left: 100px;
+    /* margin-left: 100px; */
 }
 
 .photographer_section {
@@ -101,5 +103,9 @@ a:focus-visible {
 
 .photographer_section article span:nth-child(4) {
     color: #525252;
+}
+
+.artist-card-container {
+    min-width: 255px;
 }
 

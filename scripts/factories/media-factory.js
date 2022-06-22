@@ -1,5 +1,6 @@
 function mediaFactory(data, photographerName) {
-  const { title, likes, date } = data;
+  const { title } = data;
+  let likes = data.likes;
 
   function getMediaCardDOM() {
     const article = document.createElement("article");
@@ -7,15 +8,18 @@ function mediaFactory(data, photographerName) {
     const footerLikes = document.createElement("div");
     const titleCard = document.createElement("h2");
     const likesCard = document.createElement("span");
-    const iconCard = document.createElement("span");
-    const dateCard = document.createElement("span");
+    const iconCard = document.createElement("i");
+    let clicked = false;
 
     footerCard.classList.add("footer-card");
+    iconCard.classList.add("fa-solid");
+    iconCard.classList.add("fa-heart");
     iconCard.classList.add("icon-card");
+    article.classList.add("media-card-container");
 
     titleCard.textContent = title;
     likesCard.textContent = likes;
-    iconCard.textContent = " " + "X";
+    // iconCard.textContent = " " + "X";
     // dateCard.textContent = date;
 
     if (data.image) {
@@ -43,12 +47,21 @@ function mediaFactory(data, photographerName) {
       sourceVideo.setAttribute("src", videoLink);
     }
 
+    function toogleLike() {
+      clicked = !clicked;
+      clicked ? (likes += 1) : (likes -= 1);
+      likesCard.textContent = likes;
+    }
+
     article.appendChild(footerCard);
     footerCard.appendChild(titleCard);
     footerCard.appendChild(footerLikes);
     footerLikes.appendChild(likesCard);
     footerLikes.appendChild(iconCard);
     // article.appendChild(dateCard);
+    iconCard.addEventListener("click", function () {
+      toogleLike();
+    });
     return article;
   }
   return { getMediaCardDOM };

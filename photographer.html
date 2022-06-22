@@ -8,6 +8,10 @@
       href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
       rel="stylesheet"
     />
+    <script
+      src="https://kit.fontawesome.com/81c7537d16.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Page photographe | Fisheye</title>
   </head>
   <body>
@@ -17,17 +21,24 @@
     <main id="main">
       <section class="photograph-header">
         <div class="likes-price-box">
-          <span data-total-likes=""></span>
+          <span id="total-likes" data-total-likes=""></span>
           <span data-price=""></span>
         </div>
       </section>
+      <label for="sort-by">Trier par</label>
+      <select name="order-by" id="order-by">
+        <option value="">--Choisissez une option--</option>
+        <option value="likes">Popularité</option>
+        <option value="date">Date</option>
+        <option value="title">Titre</option>
+      </select>
       <section class="photograph-gallery"></section>
     </main>
 
     <div id="contact_modal">
       <div class="modal">
         <header>
-          <h2>Contactez-moi</h2>
+          <h2 class="modal-title">Contactez-moi</h2>
           <img src="assets/icons/close.svg" onclick="closeModal()" />
         </header>
         <form>
@@ -47,7 +58,9 @@
             <label>Votre message</label>
             <input />
           </div>
-          <button class="contact_button">Envoyer</button>
+          <button type="button" class="contact_button" onclick="closeModal()">
+            Envoyer
+          </button>
         </form>
       </div>
     </div>

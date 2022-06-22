@@ -30,43 +30,81 @@ function displayData(data) {
       const userCardDOM = photographerModel.getUserCardDOM();
       const photographHeader = document.querySelector(".photograph-header");
 
-      let totalLikes = 0;
+      // let totalLikes = 0;
 
-      data.media.forEach((media) => {
-        if (media.photographerId === photographerId) {
-          totalLikes += media.likes;
+      function displayMedia(media, filter) {
+        if (filter == "likes") {
+          function compareLikes(a, b) {
+            if (a.likes > b.likes) {
+              return -1;
+            }
+            if (a.likes < b.likes) {
+              return 1;
+            }
+            return 0;
+          }
+          media.sort(compareLikes);
+        }
+        if (filter == "date") {
+          function compareDate(a, b) {
+            a.date = new Date(a.date);
+            b.date = new Date(b.date);
 
+            if (a.date > b.date) {
+              return -1;
+            }
+            if (a.date < b.date) {
+              return 1;
+            }
+            return 0;
+          }
+          media.sort(compareDate);
+        }
+        if (filter == "title") {
+          function compareTitle(a, b) {
+            if (a.title < b.title) {
+              return -1;
+            }
+            if (a.title > b.title) {
+              return 1;
+            }
+            return 0;
+          }
+          media.sort(compareTitle);
+        }
+
+        const photographGallery = document.querySelector(".photograph-gallery");
+        photographGallery.innerHTML = "";
+
+        mediaFiltered = [];
+        media.forEach((media) => {
+          if (media.photographerId === photographerId) {
+            mediaFiltered.push(media);
+            // totalLikes += media.likes;
+            // let textTotalLikes = document.createElement("span");
+            // textTotalLikes.textContent = totalLikes;
+          }
+        });
+
+        mediaFiltered.forEach((media) => {
           const mediaModel = mediaFactory(media, photographerName);
           const mediaCardDOM = mediaModel.getMediaCardDOM();
-          const photographGallery = document.querySelector(
-            ".photograph-gallery"
-          );
 
           photographGallery.appendChild(mediaCardDOM);
+        });
 
-          let cliqued = false;
+        console.log("mediaFiltered");
+        console.log(mediaFiltered);
+      }
+      displayMedia(data.media, "");
 
-          function toogleLike() {
-            media.likes + 1;
-            return !cliqued;
-          }
-          iconCard.addEventListener("click", function () {
-            toogleLike();
-          });
-        }
+      const select = document.querySelector("#order-by");
+
+      select.addEventListener("change", (event) => {
+        displayMedia(data.media, event.target.value);
       });
 
-      const likesPriceBox = document.querySelector(".likes-price-box");
-      const priceCard = document.createElement("span");
-      const price = photographer.price;
-      let textTotalLikes = document.createElement("span");
-
-      priceCard.textContent = " " + price + "€/jour";
-      textTotalLikes.textContent = totalLikes;
-
       photographHeader.appendChild(userCardDOM);
-      likesPriceBox.appendChild(textTotalLikes);
-      likesPriceBox.appendChild(priceCard);
     }
   });
 }

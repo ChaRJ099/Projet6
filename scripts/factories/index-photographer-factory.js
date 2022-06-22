@@ -7,6 +7,7 @@ function photographerFactory(data) {
 
   function getUserCardDOM() {
     const article = document.createElement("article");
+    article.classList.add("artist-card-container");
     const img = document.createElement("img");
     img.setAttribute("src", picture);
     img.setAttribute("alt", "Lien vers la gallerie de" + " " + name);
