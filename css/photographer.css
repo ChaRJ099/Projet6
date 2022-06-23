@@ -5,9 +5,11 @@
 .photograph-header {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     background-color: #FAFAFA;
     height: 300px;
     min-width: 900px;
+    padding: 0 30px;
 }
 
 .photograph-header-content {
@@ -20,24 +22,24 @@
     justify-content: space-between;
 }
 
-.photograph-header-description {
+.photograph-header-title {
     display: flex;
     flex-direction: column;
 }
 
-.photograph-header-title {
+.gallery-title {
     color: #D3573C;
     margin: 5px 0;
     font-size: 70px;
     font-weight: 400;
 }
 
-.photograph-header-description span:nth-child(2) {
+.photograph-header-title span:nth-child(2) {
     color: #901C1C;
     font-size: 15px;
 }
 
-.photograph-header-content img {
+.photograph-header-photo img {
     height: 200px;
     width: 200px;
     border-radius: 50%;
@@ -58,15 +60,38 @@
 }
 
 .likes-price-box {
-    background-color: #901C1C;
-    color: #fff;
+    display: flex;
+    flex-direction: row;
+    flex: 2;
+    background-color: #DB8876;
+    color: black;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     position: fixed;
     bottom: 0;
     right: 0;
-    margin-right: 20px;
-    padding: 10px;
+    margin-right: 30px;
+    padding: 15px;
+}
+
+.likes-box {
+    display: flex;
+    flex-direction: row;
+    order: 1;
+    margin-right: 30px;
+}
+
+#total-likes {
+    order: 0;
+    margin-right: 5px;
+}
+
+.heart-icon {
+    order: 2;
+}
+
+#price {
+    order: 3;
 }
 
 .photograph-gallery {
@@ -104,6 +129,10 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    color: #901C1C;
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 10px;
 }
 
 .icon-card:hover {
@@ -184,3 +213,11 @@ form input {
     border: none;
     border-radius: 5px;
 }
+
+/*LIGHTBOX*/
+
+.icon-close-lightbox {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+} 

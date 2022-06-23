@@ -6,9 +6,11 @@ function mediaFactory(data, photographerName) {
     const article = document.createElement("article");
     const footerCard = document.createElement("div");
     const footerLikes = document.createElement("div");
-    const titleCard = document.createElement("h2");
+    const titleCard = document.createElement("span");
     const likesCard = document.createElement("span");
     const iconCard = document.createElement("i");
+    const likesPriceBox = document.querySelector(".likes-price-box");
+    let textTotalLikes = document.querySelector("#total-likes");
     let clicked = false;
 
     footerCard.classList.add("footer-card");
@@ -19,8 +21,7 @@ function mediaFactory(data, photographerName) {
 
     titleCard.textContent = title;
     likesCard.textContent = likes;
-    // iconCard.textContent = " " + "X";
-    // dateCard.textContent = date;
+    textTotalLikes.textContent = totalLikes;
 
     if (data.image) {
       const image = data.image;
@@ -49,8 +50,16 @@ function mediaFactory(data, photographerName) {
 
     function toogleLike() {
       clicked = !clicked;
-      clicked ? (likes += 1) : (likes -= 1);
+      if (clicked) {
+        likes += 1;
+        totalLikes += 1;
+      }
+      if (!clicked) {
+        likes -= 1;
+        totalLikes -= 1;
+      }
       likesCard.textContent = likes;
+      textTotalLikes.textContent = totalLikes;
     }
 
     article.appendChild(footerCard);
@@ -58,10 +67,11 @@ function mediaFactory(data, photographerName) {
     footerCard.appendChild(footerLikes);
     footerLikes.appendChild(likesCard);
     footerLikes.appendChild(iconCard);
-    // article.appendChild(dateCard);
+    likesPriceBox.appendChild(textTotalLikes);
     iconCard.addEventListener("click", function () {
       toogleLike();
     });
+
     return article;
   }
   return { getMediaCardDOM };

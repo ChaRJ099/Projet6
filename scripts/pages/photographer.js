@@ -21,6 +21,9 @@ async function getPhotographer() {
  * Data représente le contenu du fichier JSON
  * Affiche le photographer card et le contenu des médias
  */
+
+totalLikes = 0;
+
 function displayData(data) {
   data.photographers.forEach((photographer) => {
     if (photographer.id === photographerId) {
@@ -29,8 +32,6 @@ function displayData(data) {
       const photographerModel = headerPhotographerFactory(photographer);
       const userCardDOM = photographerModel.getUserCardDOM();
       const photographHeader = document.querySelector(".photograph-header");
-
-      // let totalLikes = 0;
 
       function displayMedia(media, filter) {
         if (filter == "likes") {
@@ -79,12 +80,18 @@ function displayData(data) {
         mediaFiltered = [];
         media.forEach((media) => {
           if (media.photographerId === photographerId) {
+            let likes = media.likes;
+
+            totalLikes += likes;
+
             mediaFiltered.push(media);
-            // totalLikes += media.likes;
-            // let textTotalLikes = document.createElement("span");
-            // textTotalLikes.textContent = totalLikes;
           }
         });
+
+        let textTotalLikes = document.querySelector("#total-likes");
+        // const likesPriceBox = document.querySelector(".likes-price-box");
+        textTotalLikes.textContent = totalLikes;
+        // likesPriceBox.appendChild(textTotalLikes);
 
         mediaFiltered.forEach((media) => {
           const mediaModel = mediaFactory(media, photographerName);
@@ -92,9 +99,6 @@ function displayData(data) {
 
           photographGallery.appendChild(mediaCardDOM);
         });
-
-        console.log("mediaFiltered");
-        console.log(mediaFiltered);
       }
       displayMedia(data.media, "");
 
