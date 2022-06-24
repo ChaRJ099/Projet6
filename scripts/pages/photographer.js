@@ -77,6 +77,8 @@ function displayData(data) {
         photographGallery.innerHTML = "";
 
         mediaFiltered = [];
+        // console.log("mediaFiltered");
+        // console.log(mediaFiltered);
         media.forEach((media) => {
           if (media.photographerId === photographerId) {
             let likes = media.likes;
@@ -86,7 +88,6 @@ function displayData(data) {
             mediaFiltered.push(media);
           }
         });
-
         let textTotalLikes = document.querySelector("#total-likes");
         textTotalLikes.textContent = totalLikes;
 
@@ -99,6 +100,13 @@ function displayData(data) {
       }
       displayMedia(data.media, "");
 
+      // let imgCards = document.querySelectorAll(".img-small");
+      // console.log("imgCards");
+      // console.log(imgCards);
+      // imgCard.addEventListener("click", function () {
+      //   console.log("media");
+      //   console.log(media);
+      // });
       const select = document.querySelector("#order-by");
 
       select.addEventListener("change", (event) => {

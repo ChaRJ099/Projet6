@@ -22,9 +22,7 @@
       <section class="photograph-header">
         <div class="photograph-header-title"></div>
         <div>
-          <button class="contact_button open-form" onclick="displayModal()">
-            Contactez-moi
-          </button>
+          <button class="contact_button open-form">Contactez-moi</button>
         </div>
         <div class="photograph-header-photo"></div>
 
@@ -51,22 +49,17 @@
         class="lightbox-photo"
         style="background-color: red; width: 200px; height: 200px"
       ></div>
-      <img
-        class="icon-close-lightbox"
-        src="assets/icons/close.svg"
-        onclick="closeModal()"
-      />
+      <img class="icon-close-lightbox" src="assets/icons/close.svg" />
+    </div>
+    <div class="open-lightbox">
+      <span>OPEN LIGHTBOX</span>
     </div>
 
     <div id="contact_modal">
       <div class="modal">
         <header>
           <h2 class="modal-title">Contactez-moi</h2>
-          <img
-            class="icon-close-form"
-            src="assets/icons/close.svg"
-            onclick="closeModal()"
-          />
+          <img class="icon-close-form" src="assets/icons/close.svg" />
         </header>
         <form id="form">
           <div>
@@ -85,7 +78,7 @@
             <label for="message">Votre message</label>
             <input type="text" id="message" name="message" />
           </div>
-          <button type="button" class="contact_button" onclick="closeModal()">
+          <button type="button" class="contact_button submit-button">
             Envoyer
           </button>
         </form>
@@ -94,7 +87,7 @@
     <script src="/scripts/factories/header-photographer-factory.js"></script>
     <script src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/factories/media-factory.js"></script>
-    <script src="/scripts/utils/lightbox.js"></script>
+    <!-- <script src="/scripts/factories/lightbox.js"></script> -->
     <script src="/scripts/utils/contactForm.js"></script>
   </body>
 </html>

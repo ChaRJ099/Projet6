@@ -145,6 +145,25 @@
     margin-left: 10px;
 }
 
+#lightbox-modal {
+    display: none;
+}
+
+.open-lightbox {
+    position: absolute;
+    top: 350px;
+    margin: auto;
+    margin-top: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    display: block;
+}
+
+.open-lightbox:hover {
+    cursor: pointer;
+}
+
 #contact_modal {
     position: absolute;
     top: 30%;

@@ -1,6 +1,7 @@
 const modal = document.getElementById("contact_modal");
 const closeForm = document.querySelector(".icon-close-form");
 const openForm = document.querySelector(".open-form");
+const submitButton = document.querySelector(".submit-button");
 
 function displayModal(elem) {
   elem.style.display = "block";
@@ -15,6 +16,10 @@ openForm.addEventListener("click", function () {
 });
 
 closeForm.addEventListener("click", function () {
+  closeModal(modal);
+});
+
+submitButton.addEventListener("click", function () {
   closeModal(modal);
 });
 
@@ -39,26 +44,3 @@ email.addEventListener("input", function () {
 message.addEventListener("input", function () {
   console.log(this.value);
 });
-
-// const formData = [
-//   {
-//     firstName: document.querySelector("#first"),
-//   },
-//   {
-//     lastName: document.querySelector("#last"),
-//   },
-//   {
-//     email: document.querySelector("#email"),
-//   },
-//   {
-//     message: document.querySelector("#message"),
-//   },
-// ];
-
-// formData.forEach((input) => {
-//   let input = formData[input];
-//   console.log(input);
-//   input.addEventListener("input", function () {
-//     console.log(input.value);
-//   });
-// });

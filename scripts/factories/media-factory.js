@@ -34,7 +34,6 @@ function mediaFactory(data, photographerName) {
       imgCard.classList.add("img-small");
       article.appendChild(linkSmallImg);
       linkSmallImg.appendChild(imgCard);
-      imgCard.onclick = displayModal(lightboxModal);
     }
 
     if (data.video) {
@@ -48,7 +47,6 @@ function mediaFactory(data, photographerName) {
       article.appendChild(videoCard);
       videoCard.appendChild(sourceVideo);
       sourceVideo.setAttribute("src", videoLink);
-      videoCard.onclick = displayModal(lightboxModal);
     }
 
     function toogleLike() {
