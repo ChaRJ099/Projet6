@@ -5,7 +5,7 @@ function photographerFactory(data) {
 
   const photographerPage = `photographer.html?id=${id}`;
 
-  function getUserCardDOM() {
+  function getUserIndexCardDOM() {
     const article = document.createElement("article");
     article.classList.add("artist-card-container");
     const img = document.createElement("img");
@@ -31,5 +31,5 @@ function photographerFactory(data) {
     article.appendChild(priceCard);
     return article;
   }
-  return { name, picture, getUserCardDOM };
+  return { name, picture, getUserIndexCardDOM };
 }

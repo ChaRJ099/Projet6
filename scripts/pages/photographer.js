@@ -1,7 +1,6 @@
 const url = new URL(window.location.href);
 const photographerId = parseInt(url.searchParams.get("id"));
 let photographerName = "";
-
 /**
  * Récupère le fichier JSON dans un objet data
  */
@@ -22,18 +21,18 @@ async function getPhotographer() {
  * Affiche le photographer card et le contenu des médias
  */
 
-totalLikes = 0;
-
 function displayData(data) {
   data.photographers.forEach((photographer) => {
     if (photographer.id === photographerId) {
       photographerName = photographer.name;
 
       const photographerModel = headerPhotographerFactory(photographer);
-      const userCardDOM = photographerModel.getUserCardDOM();
-      const photographHeader = document.querySelector(".photograph-header");
 
+      photographerModel.getUserPhotographCardDOM();
+
+      //Fontion filtre media
       function displayMedia(media, filter) {
+        totalLikes = 0;
         if (filter == "likes") {
           function compareLikes(a, b) {
             if (a.likes > b.likes) {
@@ -89,9 +88,7 @@ function displayData(data) {
         });
 
         let textTotalLikes = document.querySelector("#total-likes");
-        // const likesPriceBox = document.querySelector(".likes-price-box");
         textTotalLikes.textContent = totalLikes;
-        // likesPriceBox.appendChild(textTotalLikes);
 
         mediaFiltered.forEach((media) => {
           const mediaModel = mediaFactory(media, photographerName);
@@ -107,8 +104,6 @@ function displayData(data) {
       select.addEventListener("change", (event) => {
         displayMedia(data.media, event.target.value);
       });
-
-      photographHeader.appendChild(userCardDOM);
     }
   });
 }

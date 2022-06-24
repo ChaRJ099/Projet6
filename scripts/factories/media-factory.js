@@ -34,6 +34,7 @@ function mediaFactory(data, photographerName) {
       imgCard.classList.add("img-small");
       article.appendChild(linkSmallImg);
       linkSmallImg.appendChild(imgCard);
+      imgCard.onclick = displayModal(lightboxModal);
     }
 
     if (data.video) {
@@ -41,11 +42,13 @@ function mediaFactory(data, photographerName) {
       const videoLink = `assets/images/${photographerName}/${video}`;
       const sourceVideo = document.createElement("source");
       const videoCard = document.createElement("video");
+      videoCard.classList.add("video-small");
       videoCard.style.width = "280px";
       videoCard.style.height = "280px";
       article.appendChild(videoCard);
       videoCard.appendChild(sourceVideo);
       sourceVideo.setAttribute("src", videoLink);
+      videoCard.onclick = displayModal(lightboxModal);
     }
 
     function toogleLike() {

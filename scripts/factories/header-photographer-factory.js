@@ -3,7 +3,7 @@ function headerPhotographerFactory(data) {
 
   const picture = `assets/photographers/${portrait}`;
 
-  function getUserCardDOM() {
+  function getUserPhotographCardDOM() {
     const img = document.createElement("img");
     const headerTitle = document.querySelector(".photograph-header-title");
     const headerPhoto = document.querySelector(".photograph-header-photo");
@@ -17,10 +17,8 @@ function headerPhotographerFactory(data) {
 
     likesPriceBox.appendChild(priceCard);
 
-    // headerContent.classList.add("photograph-header-content");
     img.setAttribute("src", picture);
     nameCard.classList.add("gallery-title");
-    // headerDescription.classList.add("photograph-header-description");
 
     nameCard.textContent = name;
     locationCard.textContent = country + ", " + city;
@@ -34,5 +32,5 @@ function headerPhotographerFactory(data) {
 
     // return headerContent;
   }
-  return { getUserCardDOM };
+  return { getUserPhotographCardDOM };
 }
