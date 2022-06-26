@@ -74,29 +74,47 @@ function displayData(data) {
         }
 
         const photographGallery = document.querySelector(".photograph-gallery");
+        const lightboxContainer = document.querySelector(
+          ".photograph-lightbox"
+        );
+        const slideContainer = document.querySelector(".slide-content");
         photographGallery.innerHTML = "";
+        slideContainer.innerHTML = "";
 
         mediaFiltered = [];
-        // console.log("mediaFiltered");
-        // console.log(mediaFiltered);
-        media.forEach((media) => {
-          if (media.photographerId === photographerId) {
-            let likes = media.likes;
 
+        media.forEach((elem) => {
+          if (elem.photographerId === photographerId) {
+            let likes = elem.likes;
             totalLikes += likes;
-
-            mediaFiltered.push(media);
+            mediaFiltered.push(elem);
           }
         });
         let textTotalLikes = document.querySelector("#total-likes");
         textTotalLikes.textContent = totalLikes;
 
-        mediaFiltered.forEach((media) => {
-          const mediaModel = mediaFactory(media, photographerName);
-          const mediaCardDOM = mediaModel.getMediaCardDOM();
+        // mediaFiltered.forEach((media) => {
+        //   const mediaModel = mediaFactory(media, photographerName);
+        //   const mediaCardDOM = mediaModel.getMediaCardDOM();
 
+        //   photographGallery.appendChild(mediaCardDOM);
+        // });
+
+        for (let index in mediaFiltered) {
+          const mediaModel = mediaFactory(
+            mediaFiltered[index],
+            photographerName,
+            index
+          );
+          const mediaCardDOM = mediaModel.getMediaCardDOM();
           photographGallery.appendChild(mediaCardDOM);
-        });
+        }
+
+        for (let index in mediaFiltered) {
+          const slideModel = slideFactory(mediaFiltered[index]);
+          const slideCardDOM = slideModel.getSlideCardDOM();
+          slideContainer.appendChild(slideCardDOM);
+        }
       }
       displayMedia(data.media, "");
 

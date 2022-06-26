@@ -1,4 +1,4 @@
-function mediaFactory(data, photographerName) {
+function mediaFactory(data, photographerName, index) {
   const { title } = data;
   let likes = data.likes;
 
@@ -26,27 +26,30 @@ function mediaFactory(data, photographerName) {
     if (data.image) {
       const image = data.image;
       const pictureLink = `assets/images/${photographerName}/${image}`;
-      const linkSmallImg = document.createElement("a");
+      const buttonSmallImg = document.createElement("button");
       const imgCard = document.createElement("img");
-      linkSmallImg.setAttribute("href", "#");
-      linkSmallImg.classList.add("link-img-small");
+      buttonSmallImg.classList.add("button-img-small");
       imgCard.setAttribute("src", pictureLink);
+      imgCard.setAttribute("onclick", `currentSlide(${index})`);
       imgCard.classList.add("img-small");
-      article.appendChild(linkSmallImg);
-      linkSmallImg.appendChild(imgCard);
+      article.appendChild(buttonSmallImg);
+      buttonSmallImg.appendChild(imgCard);
     }
 
     if (data.video) {
       const video = data.video;
       const videoLink = `assets/images/${photographerName}/${video}`;
+      const buttonSmallVideo = document.createElement("button");
       const sourceVideo = document.createElement("source");
       const videoCard = document.createElement("video");
+      buttonSmallVideo.classList.add("button-video-small");
       videoCard.classList.add("video-small");
-      videoCard.style.width = "280px";
-      videoCard.style.height = "280px";
-      article.appendChild(videoCard);
-      videoCard.appendChild(sourceVideo);
+      videoCard.setAttribute("onclick", `currentSlide(${index})`);
       sourceVideo.setAttribute("src", videoLink);
+      article.appendChild(buttonSmallVideo);
+      console.log(videoCard);
+      videoCard.appendChild(sourceVideo);
+      buttonSmallVideo.appendChild(videoCard);
     }
 
     function toogleLike() {

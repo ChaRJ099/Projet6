@@ -42,18 +42,16 @@
         <option value="title">Titre</option>
       </select>
       <section class="photograph-gallery"></section>
-    </main>
+      <div class="photograph-lightbox">
+        <span class="close cursor" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+          <div class="slide-content"></div>
 
-    <div id="lightbox-modal" style="position: absolute; top: 0; margin: auto">
-      <div
-        class="lightbox-photo"
-        style="background-color: red; width: 200px; height: 200px"
-      ></div>
-      <img class="icon-close-lightbox" src="assets/icons/close.svg" />
-    </div>
-    <div class="open-lightbox">
-      <span>OPEN LIGHTBOX</span>
-    </div>
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+      </div>
+    </main>
 
     <div id="contact_modal">
       <div class="modal">
@@ -84,10 +82,11 @@
         </form>
       </div>
     </div>
-    <script src="/scripts/factories/header-photographer-factory.js"></script>
-    <script src="/scripts/pages/photographer.js"></script>
+    <script src="/scripts/utils/lightbox.js"></script>
+    <script src="/scripts/factories/slide-factory.js"></script>
     <script src="/scripts/factories/media-factory.js"></script>
-    <!-- <script src="/scripts/factories/lightbox.js"></script> -->
+    <script src="/scripts/factories/header-photographer-factory.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
+    <script src="/scripts/pages/photographer.js"></script>
   </body>
 </html>
