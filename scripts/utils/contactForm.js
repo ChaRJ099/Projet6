@@ -1,13 +1,14 @@
-const modal = document.getElementById("contact_modal");
-const closeForm = document.querySelector(".icon-close-form");
+const modal = document.querySelector("#contact_modal");
+const closeForm = document.querySelector(".button-close-form");
 const openForm = document.querySelector(".open-form");
 const submitButton = document.querySelector(".submit-button");
+const backdrop = document.querySelector(".backdrop");
+const form = document.querySelector("#form");
 
 // const namePhotograph = document.querySelector(".gallery-title");
-console.log(photographerName);
-
 function displayModal(elem) {
   elem.style.display = "flex";
+  modal.focus();
 }
 
 function closeModal(elem) {
@@ -16,21 +17,21 @@ function closeModal(elem) {
 
 openForm.addEventListener("click", function () {
   displayModal(modal);
-  document.querySelector(".backdrop").style.display = "block";
-  document.querySelector(".backdrop").style.opacity = "1";
+  backdrop.style.display = "block";
+  backdrop.style.opacity = "1";
 });
 
 closeForm.addEventListener("click", function () {
   closeModal(modal);
-  document.querySelector(".backdrop").style.display = "none";
-  document.querySelector(".backdrop").style.opacity = "0";
+  backdrop.style.display = "none";
+  backdrop.style.opacity = "0";
   form.reset();
 });
 
 submitButton.addEventListener("click", function () {
   closeModal(modal);
-  document.querySelector(".backdrop").style.display = "none";
-  document.querySelector(".backdrop").style.opacity = "0";
+  backdrop.style.display = "none";
+  backdrop.style.opacity = "0";
   form.reset();
 });
 

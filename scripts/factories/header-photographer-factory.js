@@ -9,8 +9,8 @@ function headerPhotographerFactory(data) {
     const headerTitle = document.querySelector(".photograph-header-title");
     const headerPhoto = document.querySelector(".photograph-header-photo");
     const nameCard = document.createElement("h1");
-    const taglineCard = document.createElement("span");
-    const locationCard = document.createElement("span");
+    const taglineCard = document.createElement("p");
+    const locationCard = document.createElement("p");
     const likesPriceBox = document.querySelector(".likes-price-box");
     const priceCard = document.querySelector("#price");
     const nameContact = document.querySelector(".name-contact");
@@ -18,10 +18,8 @@ function headerPhotographerFactory(data) {
     priceCard.textContent = " " + price + "€/jour";
 
     likesPriceBox.appendChild(priceCard);
-
+    img.setAttribute("alt", name);
     img.setAttribute("src", picture);
-    taglineCard.setAttribute("role", "text");
-    locationCard.setAttribute("role", "text");
     nameCard.classList.add("gallery-title");
 
     nameCard.textContent = name;

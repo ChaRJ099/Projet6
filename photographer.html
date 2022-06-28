@@ -2,6 +2,8 @@
 <html lang="fr">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/photographer.css" rel="stylesheet" type="text/css" />
+    <link href="css/filter.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="assets/favicon.png" />
     <link
@@ -15,14 +17,18 @@
     <title>Page photographe | Fisheye</title>
   </head>
   <body>
-    <header class="header-page" role="banner">
+    <header class="header-page">
       <a href="index.html"
         ><img src="assets/images/logo.png" class="logo" alt="Fisheye Home page"
       /></a>
     </header>
-    <main id="main" role="main">
+    <main id="main">
       <section class="photograph-header">
-        <div class="photograph-header-title"></div>
+        <div
+          role="heading"
+          aria-level="2"
+          class="photograph-header-title"
+        ></div>
         <div>
           <button class="contact_button open-form">Contactez-moi</button>
         </div>
@@ -31,42 +37,96 @@
         <div class="likes-price-box">
           <div class="likes-box">
             <span id="total-likes"></span>
-            <i class="fa-solid fa-heart heart-icon" aria-label="likes"></i>
+            <i class="fa-solid fa-heart heart-icon"></i>
           </div>
           <span id="price" data-price=""></span>
         </div>
       </section>
-      <label for="sort-by">Trier par</label>
-      <select name="order-by" id="order-by">
-        <option value="likes">Popularité</option>
-        <option value="date">Date</option>
-        <option value="title">Titre</option>
-      </select>
+      <button
+        type="button"
+        aria-expanded
+        role="button"
+        aria-haspopup="listbox"
+        class="bouton-filter"
+      >
+        <span class="sr-only">Trier par :</span>
+        date
+      </button>
+
+      <div class="filtres">
+        <span id="filtres--titre" class="sr-only">Trier par</span>
+        <ul
+          class="filtres--liste"
+          tabindex="0"
+          role="listbox"
+          aria-activedescendant
+          aria-selected
+          aria-labelledby="filtres--titre"
+        >
+          <li
+            data-id
+            data-value="likes"
+            class="filtres--liste_option"
+            role="option"
+          >
+            Popularité
+          </li>
+          <li
+            data-id
+            data-value="date"
+            class="filtres--liste_option"
+            role="option"
+          >
+            Date
+          </li>
+          <li
+            data-id
+            data-value="title"
+            class="filtres--liste_option"
+            role="option"
+          >
+            Titre
+          </li>
+        </ul>
+      </div>
+
       <section class="photograph-gallery"></section>
       <div class="backdrop"></div>
-      <div class="lightbox">
+      <div class="lightbox" tabindex="0">
         <div class="lightbox--content">
-          <span class="lightbox--close cursor" onclick="closeLightbox()"
-            >&times;</span
-          >
+          <button class="lightbox--close cursor" onclick="closeLightbox()">
+            &times;
+          </button>
 
           <div class="lightbox--slide"></div>
-          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+          <button type="button" class="prev" onclick="plusSlides(-1)">
+            &#10094;
+            <span class="sr-only">Panneau précédent</span>
+          </button>
+          <button type="button" class="next" onclick="plusSlides(1)">
+            &#10095;
+            <span class="sr-only">Panneau suivant</span>
+          </button>
         </div>
       </div>
     </main>
 
-    <div id="contact_modal">
+    <div id="contact_modal" tabindex="0">
       <div class="modal">
         <header>
-          <h2 class="modal-title">Contactez-moi</h2>
-          <span role="text" class="name-contact"></span>
-          <img
-            class="icon-close-form"
-            src="assets/icons/close.svg"
-            alt="Fermer le formulaire de contact"
-          />
+          <h2 id="modal-title" class="modal-title">Contactez-moi</h2>
+          <span class="name-contact"></span>
+          <button
+            class="button-close-form"
+            type="button"
+            aria-labelledby="modal-title"
+          >
+            <img
+              class="icon-close-form"
+              src="assets/icons/close.svg"
+              alt="Fermer le formulaire de contact"
+            />
+          </button>
         </header>
         <form id="form">
           <div>
@@ -115,11 +175,13 @@
         </form>
       </div>
     </div>
+
     <script src="/scripts/utils/lightbox.js"></script>
     <script src="/scripts/factories/slide-factory.js"></script>
     <script src="/scripts/factories/media-factory.js"></script>
     <script src="/scripts/factories/header-photographer-factory.js"></script>
     <script src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
+    <script src="/scripts/utils/filter.js"></script>
   </body>
 </html>

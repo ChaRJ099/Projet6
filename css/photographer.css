@@ -45,7 +45,8 @@ main {
     cursor: pointer;
 }
 .open-form:hover {
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+    background-color: #DB8876;
+    color: black;
 }
     
 
@@ -56,9 +57,10 @@ main {
     font-weight: 400;
 }
 
-.photograph-header-title span:nth-child(2) {
+.photograph-header-title p:nth-child(2) {
     color: #901C1C;
-    font-size: 15px;
+    font-size: 17px;
+    margin: 0;
 }
 
 .photograph-header-photo img {
@@ -103,11 +105,22 @@ main {
     order: 3;
 }
 
-select {
+.select-title {
+    font-weight: 600;
+    margin-right: 15px;
+}
+
+.select-list {
     border-radius: 3px;
     border: none;
+    background-color: #901C1C;
+    color: #fff;
+    -webkit-appearance: button;
+    appearance: button;
+    outline: none;
     font-size: 15px;
     padding: 10px;
+    width: 170px;   
 }
 
 .photograph-gallery {
@@ -116,7 +129,6 @@ select {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 70px;
-
 }
 
 .media-card-container {
@@ -147,15 +159,22 @@ select {
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
 }
 
-.footer-card {
+.footer-card, .footer-likes {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+}    
+
+.footer-card {
+    margin-top: 10px;
+}
+
+.footer-card p, h2 {
+    margin: 0;
     color: #901C1C;
     font-size: 15px;
     font-weight: 400;
-    margin-top: 10px;
 }
 
 .icon-card:hover {
@@ -181,6 +200,20 @@ select {
     background-color: rgba(255, 255, 255, 0.808);
 }
 
+.sr-only {
+    border: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    -webkit-clip-path: inset(50%) !important;
+            clip-path: inset(50%) !important;
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+    white-space: now-rap !important;
+}
+
 /* CONTACT FORM */
 
 #contact_modal {
@@ -189,12 +222,23 @@ select {
     top: 0;
     margin: auto;
     width: 100%;
-    /* max-width: 500px; */
     height: 100%;
     left: 0;
     display: none;
     align-items: center;
     justify-content: center;
+}
+
+#contact_modal input:focus:not(:focus-visible), .button-close-form:focus:not(:focus-visible), .submit-button:focus:not(:focus-visible) {
+    outline-color: transparent;
+  }
+
+#contact_modal input:focus-visible, .button-close-form:focus-visible {
+    outline: 2px solid #901C1C;
+}
+
+.submit-button:focus-visible {
+    outline: 2px solid #fff;
 }
 
 .modal {
@@ -223,15 +267,33 @@ select {
     position: absolute;
     top: 0;
     right: 0;
+    /* cursor: pointer; */
+    width: 30px;
+    height: 30px;
+}
+
+.button-close-form {
+    border: none;
+    background: none;
+    position: absolute;
+    top: 0;
+    right: 0;
     cursor: pointer;
     width: 30px;
     height: 30px;
+}
+
+.submit-button:hover {
+    background-color: #DB8876;
+    color: black;
+    border: 2px solid #fff;
 }
 
 .modal-title, .name-contact {
     font-size: 35px;
     font-weight: normal;
     margin: 0;
+    color: black;
 }
 
 form {
@@ -308,18 +370,23 @@ form input {
 }
 
 .lightbox--close {
-    font-size: 70px;
+    font-size: 60px;
     color: #901C1C;
     font-weight: 300;
     position: absolute;
-    top: -35px;
-    right: -40px;
+    top: -25px;
+    right: -50px;
+    border: none;
+    background: none;
+    padding: 0;
 }
 
 .next, .prev {
     cursor: pointer;
     font-size: 50px;
     color: #901C1C;
+    background: none;
+    border: none;
     font-weight: 300;
     position: absolute;
 }
@@ -364,4 +431,5 @@ form input {
     color: #901C1C;
     font-size: 15px;
     font-weight: 400;
+    margin: 0;
 }

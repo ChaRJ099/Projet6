@@ -1,7 +1,12 @@
 const url = new URL(window.location.href);
 const photographerId = parseInt(url.searchParams.get("id"));
 let photographerName = "";
-let totalLikes;
+const titleGallery = document.createElement("h2");
+let mediaToFilter = {};
+
+titleGallery.classList.add("sr-only");
+titleGallery.textContent = "Galerie photos";
+
 /**
  * Récupère le fichier JSON dans un objet data
  */
@@ -26,21 +31,13 @@ function displayData(data) {
   data.photographers.forEach((photographer) => {
     if (photographer.id === photographerId) {
       photographerName = photographer.name;
-
+      mediaToFilter = data.media;
       // eslint-disable-next-line no-undef
       const photographerModel = headerPhotographerFactory(photographer);
 
       photographerModel.getUserPhotographCardDOM();
 
-      //Fontion filtre media
-
       displayMedia(data.media, "");
-
-      const select = document.querySelector("#order-by");
-
-      select.addEventListener("change", (event) => {
-        displayMedia(data.media, event.target.value);
-      });
     }
   });
 }
@@ -76,7 +73,10 @@ function compareTitle(a, b) {
   }
   return 0;
 }
+
+//Fonction filtre media
 function displayMedia(media, filter) {
+  console.log(filter);
   totalLikes = 0;
   if (filter == "likes") {
     media.sort(compareLikes);
@@ -114,8 +114,11 @@ function displayMedia(media, filter) {
       totalLikes
     );
     const mediaCardDOM = mediaModel.getMediaCardDOM();
+
     photographGallery.appendChild(mediaCardDOM);
   }
+
+  photographGallery.appendChild(titleGallery);
 
   for (let index in mediaFiltered) {
     // eslint-disable-next-line no-undef

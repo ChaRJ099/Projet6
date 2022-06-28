@@ -15,6 +15,7 @@ function displayData(photographers) {
   const photographersSection = document.querySelector(".photographer_section");
 
   photographers.forEach((photographer) => {
+    // eslint-disable-next-line no-undef
     const photographerModel = photographerFactory(photographer);
     const userIndexCardDOM = photographerModel.getUserIndexCardDOM();
     // const linkCard = document.createElement("a");

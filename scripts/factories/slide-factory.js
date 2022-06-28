@@ -3,26 +3,28 @@ function slideFactory(data, photographerName) {
   const { title, image, video } = data;
 
   function getSlideCardDOM() {
-    const titleSlide = document.createElement("span");
+    const titleSlide = document.createElement("p");
     const slide = document.createElement("div");
     const slideContent = document.querySelector(".lightbox--slide");
-
+    const nameSplited = photographerName.replace(" ", "-");
     titleSlide.textContent = title;
     titleSlide.setAttribute("class", "title-slide");
     slide.setAttribute("class", "slides");
+    slide.setAttribute("role", "tabpanel");
+    slide.setAttribute("aria-hidden", "true");
+    slide.setAttribute("tabindex", "0");
 
     if (data.image) {
       const imgSlide = document.createElement("img");
-      const imgSlideURL = `assets/images/${photographerName}/${image}`;
-      console.log(photographerName);
+      const imgSlideURL = `assets/images/${nameSplited}/${image}`;
       imgSlide.setAttribute("src", imgSlideURL);
       imgSlide.setAttribute("class", "img-slide");
-
+      imgSlide.setAttribute("alt", title);
       slide.appendChild(imgSlide);
     }
 
     if (data.video) {
-      const videoSlideURL = `assets/images/${photographerName}/${video}`;
+      const videoSlideURL = `assets/images/${nameSplited}/${video}`;
       const videoSlide = document.createElement("video");
       const sourceVideo = document.createElement("source");
 

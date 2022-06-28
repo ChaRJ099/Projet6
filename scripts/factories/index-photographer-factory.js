@@ -10,17 +10,14 @@ function photographerFactory(data) {
     const article = document.createElement("article");
     const img = document.createElement("img");
     const nameCard = document.createElement("h2");
-    const taglineCard = document.createElement("span");
-    const locationCard = document.createElement("span");
-    const priceCard = document.createElement("span");
+    const taglineCard = document.createElement("p");
+    const locationCard = document.createElement("p");
+    const priceCard = document.createElement("p");
     const linkCard = document.createElement("a");
 
     article.classList.add("artist-card-container");
     img.setAttribute("src", picture);
-    img.setAttribute("alt", "");
-    taglineCard.setAttribute("role", "text");
-    locationCard.setAttribute("role", "text");
-    priceCard.setAttribute("role", "text");
+    img.setAttribute("alt", name);
     linkCard.setAttribute("href", photographerPage);
     linkCard.setAttribute("title", "Aller vers la galerie de" + " " + name);
 

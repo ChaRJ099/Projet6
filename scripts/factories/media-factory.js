@@ -7,29 +7,28 @@ function mediaFactory(data, photographerName, index, totalLikes) {
     const article = document.createElement("article");
     const footerCard = document.createElement("div");
     const footerLikes = document.createElement("div");
-    const titleCard = document.createElement("span");
-    const likesCard = document.createElement("span");
+    const titleCard = document.createElement("h2");
+    const likesCard = document.createElement("p");
     const iconCard = document.createElement("i");
     const likesPriceBox = document.querySelector(".likes-price-box");
+    const nameSplited = photographerName.replace(" ", "-");
     let textTotalLikes = document.querySelector("#total-likes");
     let clicked = false;
 
     footerCard.classList.add("footer-card");
+    footerLikes.classList.add("footer-likes");
     iconCard.classList.add("fa-solid");
     iconCard.classList.add("fa-heart");
     iconCard.classList.add("icon-card");
     article.classList.add("media-card-container");
-    titleCard.setAttribute("role", "text");
-    likesCard.setAttribute("role", "text");
-    iconCard.setAttribute("aria-label", "likes");
-
     titleCard.textContent = title;
     likesCard.textContent = likes;
     textTotalLikes.textContent = totalLikes;
 
     if (data.image) {
       const image = data.image;
-      const pictureLink = `assets/images/${photographerName}/${image}`;
+
+      const pictureLink = `assets/images/${nameSplited}/${image}`;
       const buttonSmallImg = document.createElement("button");
       const imgCard = document.createElement("img");
 
@@ -37,7 +36,7 @@ function mediaFactory(data, photographerName, index, totalLikes) {
       buttonSmallImg.setAttribute("value", "Ouvrir la vue lightbox");
       imgCard.setAttribute("src", pictureLink);
       imgCard.setAttribute("alt", title);
-      imgCard.setAttribute("onclick", `currentSlide(${index})`);
+      buttonSmallImg.setAttribute("onclick", `currentSlide(${index})`);
       imgCard.classList.add("img-small");
 
       article.appendChild(buttonSmallImg);
@@ -46,7 +45,7 @@ function mediaFactory(data, photographerName, index, totalLikes) {
 
     if (data.video) {
       const video = data.video;
-      const videoLink = `assets/images/${photographerName}/${video}`;
+      const videoLink = `assets/images/${nameSplited}/${video}`;
       const buttonSmallVideo = document.createElement("button");
       const sourceVideo = document.createElement("source");
       const videoCard = document.createElement("video");
@@ -54,8 +53,7 @@ function mediaFactory(data, photographerName, index, totalLikes) {
       buttonSmallVideo.classList.add("button-video-small");
       buttonSmallVideo.setAttribute("value", "Ouvrir la vue lightbox");
       videoCard.classList.add("video-small");
-      videoCard.setAttribute("alt", title);
-      videoCard.setAttribute("onclick", `currentSlide(${index})`);
+      buttonSmallVideo.setAttribute("onclick", `currentSlide(${index})`);
       sourceVideo.setAttribute("src", videoLink);
 
       article.appendChild(buttonSmallVideo);

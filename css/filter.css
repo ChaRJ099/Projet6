@@ -1,0 +1,29 @@
+
+.filtres {
+    display: none;
+    position: relative;
+}
+  
+.filtres--liste {
+    list-style-type: none;
+    padding: 0;
+    position: absolute;
+    top: -50px;
+    background: red;
+    width: 150px;
+}
+
+.filtres--liste_option {
+    cursor: pointer;
+    height: 20px;
+    width: 100%;
+    padding: 5px;
+}
+
+.filtres--liste_option:hover {
+    background: blue;
+}
+
+.focused {
+    background: blue;
+}
