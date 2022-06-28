@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 function photographerFactory(data) {
   const { name, portrait, city, country, tagline, price, id } = data;
 
@@ -7,16 +8,21 @@ function photographerFactory(data) {
 
   function getUserIndexCardDOM() {
     const article = document.createElement("article");
-    article.classList.add("artist-card-container");
     const img = document.createElement("img");
-    img.setAttribute("src", picture);
-    img.setAttribute("alt", "Lien vers la gallerie de" + " " + name);
     const nameCard = document.createElement("h2");
     const taglineCard = document.createElement("span");
     const locationCard = document.createElement("span");
     const priceCard = document.createElement("span");
     const linkCard = document.createElement("a");
+
+    article.classList.add("artist-card-container");
+    img.setAttribute("src", picture);
+    img.setAttribute("alt", "");
+    taglineCard.setAttribute("role", "text");
+    locationCard.setAttribute("role", "text");
+    priceCard.setAttribute("role", "text");
     linkCard.setAttribute("href", photographerPage);
+    linkCard.setAttribute("title", "Aller vers la galerie de" + " " + name);
 
     nameCard.textContent = name;
     locationCard.textContent = country + ", " + city;

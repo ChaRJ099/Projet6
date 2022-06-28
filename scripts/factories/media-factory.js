@@ -1,4 +1,5 @@
-function mediaFactory(data, photographerName, index) {
+// eslint-disable-next-line no-unused-vars
+function mediaFactory(data, photographerName, index, totalLikes) {
   const { title } = data;
   let likes = data.likes;
 
@@ -18,6 +19,9 @@ function mediaFactory(data, photographerName, index) {
     iconCard.classList.add("fa-heart");
     iconCard.classList.add("icon-card");
     article.classList.add("media-card-container");
+    titleCard.setAttribute("role", "text");
+    likesCard.setAttribute("role", "text");
+    iconCard.setAttribute("aria-label", "likes");
 
     titleCard.textContent = title;
     likesCard.textContent = likes;
@@ -28,10 +32,14 @@ function mediaFactory(data, photographerName, index) {
       const pictureLink = `assets/images/${photographerName}/${image}`;
       const buttonSmallImg = document.createElement("button");
       const imgCard = document.createElement("img");
+
       buttonSmallImg.classList.add("button-img-small");
+      buttonSmallImg.setAttribute("value", "Ouvrir la vue lightbox");
       imgCard.setAttribute("src", pictureLink);
+      imgCard.setAttribute("alt", title);
       imgCard.setAttribute("onclick", `currentSlide(${index})`);
       imgCard.classList.add("img-small");
+
       article.appendChild(buttonSmallImg);
       buttonSmallImg.appendChild(imgCard);
     }
@@ -42,12 +50,15 @@ function mediaFactory(data, photographerName, index) {
       const buttonSmallVideo = document.createElement("button");
       const sourceVideo = document.createElement("source");
       const videoCard = document.createElement("video");
+
       buttonSmallVideo.classList.add("button-video-small");
+      buttonSmallVideo.setAttribute("value", "Ouvrir la vue lightbox");
       videoCard.classList.add("video-small");
+      videoCard.setAttribute("alt", title);
       videoCard.setAttribute("onclick", `currentSlide(${index})`);
       sourceVideo.setAttribute("src", videoLink);
+
       article.appendChild(buttonSmallVideo);
-      console.log(videoCard);
       videoCard.appendChild(sourceVideo);
       buttonSmallVideo.appendChild(videoCard);
     }

@@ -1,53 +1,42 @@
-function slideFactory(data) {
-  console.log(data);
-  const { id, photographerId, title, image, likes, date, price } = data;
+// eslint-disable-next-line no-unused-vars
+function slideFactory(data, photographerName) {
+  const { title, image, video } = data;
 
   function getSlideCardDOM() {
-    console.log("getLightboxCardDOM");
-    const article = document.createElement("article");
+    const titleSlide = document.createElement("span");
+    const slide = document.createElement("div");
+    const slideContent = document.querySelector(".lightbox--slide");
 
-    // const lightboxModal = document.querySelector("#lightbox-modal");
-    // const imgLightbox = document.querySelector(".lightbox-photo");
-    // const closeLightbox = document.querySelector(".icon-close-lightbox");
-    // const openLightbox = document.querySelector(".open-lightbox");
-    // function displayLightboxModal(elem) {
-    //   elem.style.display = "block";
-    // }
-    // function closeLightboxModal(elem) {
-    //   elem.style.display = "none";
-    // }
-    // imgCard.addEventListener("click", function () {
-    //   displayLightboxModal(lightboxModal);
-    // });
-    // closeLightbox.addEventListener("click", function () {
-    //   closeLightboxModal(lightboxModal);
-    // });
-    return article;
+    titleSlide.textContent = title;
+    titleSlide.setAttribute("class", "title-slide");
+    slide.setAttribute("class", "slides");
+
+    if (data.image) {
+      const imgSlide = document.createElement("img");
+      const imgSlideURL = `assets/images/${photographerName}/${image}`;
+      console.log(photographerName);
+      imgSlide.setAttribute("src", imgSlideURL);
+      imgSlide.setAttribute("class", "img-slide");
+
+      slide.appendChild(imgSlide);
+    }
+
+    if (data.video) {
+      const videoSlideURL = `assets/images/${photographerName}/${video}`;
+      const videoSlide = document.createElement("video");
+      const sourceVideo = document.createElement("source");
+
+      videoSlide.setAttribute("controls", "");
+      videoSlide.setAttribute("class", "video-slide");
+      sourceVideo.setAttribute("src", videoSlideURL);
+
+      videoSlide.appendChild(sourceVideo);
+      slide.appendChild(videoSlide);
+    }
+
+    slideContent.appendChild(slide);
+    slide.appendChild(titleSlide);
+    return slide;
   }
   return { getSlideCardDOM };
 }
-
-/*
-<div id="myModal" class="lightbox">
-      <span class="close cursor" onclick="closeModal()">&times;</span>
-      <div class="modal-content">
-        <div class="mySlides">
-          <img src="img_nature_wide.jpg" style="width: 100%" />
-        </div>
-
-        <div class="mySlides">
-          <img src="img_snow_wide.jpg" style="width: 100%" />
-        </div>
-
-        <div class="mySlides">
-          <img src="img_mountains_wide.jpg" style="width: 100%" />
-        </div>
-
-        <div class="mySlides">
-          <img src="img_lights_wide.jpg" style="width: 100%" />
-        </div>
-
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-      </div>
-</div>*/

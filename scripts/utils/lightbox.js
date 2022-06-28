@@ -1,11 +1,15 @@
 let slideIndex = 0;
 
-function openModal() {
-  document.querySelector("#myModal").style.display = "block";
+function openLightbox() {
+  document.querySelector(".lightbox").style.display = "flex";
+  document.querySelector(".backdrop").style.display = "block";
+  document.querySelector(".backdrop").style.opacity = "1";
 }
 
-function closeModal() {
-  document.querySelector("#myModal").style.display = "none";
+function closeLightbox() {
+  document.querySelector(".lightbox").style.display = "none";
+  document.querySelector(".backdrop").style.display = "none";
+  document.querySelector(".backdrop").style.opacity = "0";
 }
 
 function plusSlides(n) {
@@ -14,13 +18,13 @@ function plusSlides(n) {
 
 function currentSlide(n) {
   slideIndex = n;
-  openModal();
+  openLightbox();
   showSlides(n);
 }
 
 function showSlides(n) {
   let i;
-  let slides = document.querySelectorAll(".mySlides");
+  let slides = document.querySelectorAll(".slides");
 
   if (n > slides.length - 1) {
     slideIndex = 0;

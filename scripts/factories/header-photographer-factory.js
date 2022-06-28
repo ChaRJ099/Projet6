@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 function headerPhotographerFactory(data) {
   const { name, portrait, city, country, tagline, price } = data;
 
@@ -12,15 +13,19 @@ function headerPhotographerFactory(data) {
     const locationCard = document.createElement("span");
     const likesPriceBox = document.querySelector(".likes-price-box");
     const priceCard = document.querySelector("#price");
+    const nameContact = document.querySelector(".name-contact");
 
     priceCard.textContent = " " + price + "€/jour";
 
     likesPriceBox.appendChild(priceCard);
 
     img.setAttribute("src", picture);
+    taglineCard.setAttribute("role", "text");
+    locationCard.setAttribute("role", "text");
     nameCard.classList.add("gallery-title");
 
     nameCard.textContent = name;
+    nameContact.textContent = name;
     locationCard.textContent = country + ", " + city;
     taglineCard.textContent = tagline;
 
