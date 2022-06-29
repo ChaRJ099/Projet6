@@ -1,29 +1,82 @@
+.listbox-container {
+    display: flex;
+}
+
+.listbox-container-title {
+    font-weight: 600;
+    padding-top: 13px;
+}
+
+.options-container {
+    margin-left: 10px;
+    min-height: 50px;
+    position: relative;
+    width: 150px;
+    border-radius: 4px;
+}
+
+.bouton-filter {
+    background: none;
+    border: none;
+    background-color: #901C1C;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 15px;
+    width: 150px;
+    display: flex;
+    justify-content: flex-start;
+    padding: 15px 0 15px 10px;
+    font-weight: 400;
+    font-family: "DM Sans", sans-serif;
+}
 
 .filtres {
     display: none;
-    position: relative;
+    position: absolute;
+    width: 150px;
+    top: 0;
+    z-index: 15;
+    border-radius: 4px;
 }
   
 .filtres--liste {
     list-style-type: none;
     padding: 0;
-    position: absolute;
-    top: -50px;
-    background: red;
+    margin: 0;
+    background: #901C1C;
     width: 150px;
+    font-size: 15px;
+    font-weight: 400;
+    color: #fff;
+    font-family: "DM Sans", sans-serif;
+    border-radius: 4px;
+    overflow: hidden;
 }
 
 .filtres--liste_option {
     cursor: pointer;
-    height: 20px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 50px;
+    padding: 10px;
     width: 100%;
-    padding: 5px;
 }
 
-.filtres--liste_option:hover {
-    background: blue;
+.filtres--liste_option:hover, .filtres--liste_option.focused {
+    background: #D3573C;
 }
 
-.focused {
-    background: blue;
+.filtres--liste_option::before {
+    content:"";
+    width: 90%;
+    position: absolute;
+    height: 1px;
+    background-color: #fff;
+    bottom: 0;
+    left: 5%;
+}
+
+.filtres--liste_option:last-child:before {
+    display: none;
 }

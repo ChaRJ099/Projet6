@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 function mediaFactory(data, photographerName, index, totalLikes) {
+  // console.log(totalLikes);
   const { title } = data;
   let likes = data.likes;
 
@@ -63,6 +64,7 @@ function mediaFactory(data, photographerName, index, totalLikes) {
 
     function toogleLike() {
       clicked = !clicked;
+      console.log(clicked);
       if (clicked) {
         likes += 1;
         totalLikes += 1;
@@ -73,6 +75,7 @@ function mediaFactory(data, photographerName, index, totalLikes) {
       }
       likesCard.textContent = likes;
       textTotalLikes.textContent = totalLikes;
+      textTotalLikes.dataset.likes = totalLikes;
     }
 
     article.appendChild(footerCard);

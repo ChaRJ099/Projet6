@@ -6,7 +6,9 @@ const filtresBouton = document.querySelector(".bouton-filter");
 const totalOptions = options.length;
 let elementFocused = 0;
 
-filtresBouton.addEventListener("click", () => {
+filtresBouton.addEventListener("click", (e) => {
+  e.preventDefault();
+  e.stopPropagation();
   filtres.style.display = "flex";
   liste.focus();
 });
@@ -17,6 +19,7 @@ options.forEach((option, index) => {
     setElemFocused(index);
     elementFocused = index;
     let elemSelected = document.querySelector(`[data-id="${elementFocused}"]`);
+    // eslint-disable-next-line no-undef
     displayMedia(mediaToFilter, elemSelected.dataset.value);
     filtres.style.display = "none";
   });
@@ -29,7 +32,6 @@ interactWithListbox();
 function interactWithListbox() {
   liste.addEventListener("keydown", (key) => {
     key.preventDefault();
-    console.log(key.code);
 
     if (key.code === "Escape") {
       filtres.style.display = "none";
@@ -40,6 +42,7 @@ function interactWithListbox() {
       let elemSelected = document.querySelector(
         `[data-id="${elementFocused}"]`
       );
+      // eslint-disable-next-line no-undef
       displayMedia(mediaToFilter, elemSelected.dataset.value);
       filtres.style.display = "none";
     }
@@ -76,4 +79,16 @@ function setElemFocused(index) {
   filtresBouton.textContent = elemSelected.textContent;
 }
 
-//Reprendre fonction display data
+// document.querySelector("body").addEventListener("click", (event) => {
+//   console.log("event.target.class");
+//   console.log(event.target.class === "filtres");
+
+//   if (filtres.style.display === "flex") {
+//     filtres.style.display = "none";
+//   }
+// });
+document.addEventListener("click", (event) => {
+  if (!event.target.closest(".filtres")) {
+    filtres.style.display = "none";
+  }
+});

@@ -2,6 +2,8 @@ const url = new URL(window.location.href);
 const photographerId = parseInt(url.searchParams.get("id"));
 let photographerName = "";
 const titleGallery = document.createElement("h2");
+let totalLikesElem = document.querySelector("#total-likes");
+let totalLikesValue = 0;
 let mediaToFilter = {};
 
 titleGallery.classList.add("sr-only");
@@ -11,7 +13,7 @@ titleGallery.textContent = "Galerie photos";
  * Récupère le fichier JSON dans un objet data
  */
 async function getPhotographer() {
-  const jsonFile = "../../data/photographers.json";
+  const jsonFile = "data/photographers.json";
   fetch(jsonFile)
     .then((response) => {
       return response.json();
@@ -76,8 +78,8 @@ function compareTitle(a, b) {
 
 //Fonction filtre media
 function displayMedia(media, filter) {
-  console.log(filter);
-  totalLikes = 0;
+  totalLikesElem.dataset.likes = 0;
+
   if (filter == "likes") {
     media.sort(compareLikes);
   }
@@ -98,12 +100,13 @@ function displayMedia(media, filter) {
   media.forEach((elem) => {
     if (elem.photographerId === photographerId) {
       let likes = elem.likes;
-      totalLikes += likes;
+      totalLikesValue += likes;
+
       mediaFiltered.push(elem);
     }
   });
-  let textTotalLikes = document.querySelector("#total-likes");
-  textTotalLikes.textContent = totalLikes;
+  totalLikesElem.dataset.likes = totalLikesValue;
+  totalLikesElem.textContent = totalLikesValue;
 
   for (let index in mediaFiltered) {
     // eslint-disable-next-line no-undef
@@ -111,7 +114,7 @@ function displayMedia(media, filter) {
       mediaFiltered[index],
       photographerName,
       index,
-      totalLikes
+      totalLikesValue
     );
     const mediaCardDOM = mediaModel.getMediaCardDOM();
 

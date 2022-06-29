@@ -1,6 +1,3 @@
-#contact_modal {
-    display: none;
-}
 
 main {
     position: relative;
@@ -105,26 +102,8 @@ main {
     order: 3;
 }
 
-.select-title {
-    font-weight: 600;
-    margin-right: 15px;
-}
-
-.select-list {
-    border-radius: 3px;
-    border: none;
-    background-color: #901C1C;
-    color: #fff;
-    -webkit-appearance: button;
-    appearance: button;
-    outline: none;
-    font-size: 15px;
-    padding: 10px;
-    width: 170px;   
-}
-
 .photograph-gallery {
-    margin-top: 100px;
+    margin-top: 110px;
     min-width: 900px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -214,7 +193,9 @@ main {
     white-space: now-rap !important;
 }
 
-/* CONTACT FORM */
+/************************/
+/**    CONTACT FORM    **/
+/************************/
 
 #contact_modal {
     z-index: 15;
@@ -229,23 +210,11 @@ main {
     justify-content: center;
 }
 
-#contact_modal input:focus:not(:focus-visible), .button-close-form:focus:not(:focus-visible), .submit-button:focus:not(:focus-visible) {
-    outline-color: transparent;
-  }
-
-#contact_modal input:focus-visible, .button-close-form:focus-visible {
-    outline: 2px solid #901C1C;
-}
-
-.submit-button:focus-visible {
-    outline: 2px solid #fff;
-}
-
 .modal {
     margin: 0 auto;
     border-radius: 5px;
     background-color: #DB8876;
-    width: 400px;
+    width: 500px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -341,7 +310,9 @@ form input {
     cursor: pointer;
 }
 
-/*LIGHTBOX*/
+/************************/
+/**      LIGHTBOX      **/
+/************************/
 
 .lightbox {
     z-index: 15;
