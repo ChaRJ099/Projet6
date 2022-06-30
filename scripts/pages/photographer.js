@@ -78,6 +78,7 @@ function compareTitle(a, b) {
 
 //Fonction filtre media
 function displayMedia(media, filter) {
+  totalLikesValue = 0;
   totalLikesElem.dataset.likes = 0;
 
   if (filter == "likes") {

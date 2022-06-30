@@ -63,8 +63,9 @@ function mediaFactory(data, photographerName, index, totalLikes) {
     }
 
     function toogleLike() {
+      totalLikes = parseFloat(textTotalLikes.dataset.likes);
+      console.log(totalLikes);
       clicked = !clicked;
-      console.log(clicked);
       if (clicked) {
         likes += 1;
         totalLikes += 1;
@@ -73,6 +74,9 @@ function mediaFactory(data, photographerName, index, totalLikes) {
         likes -= 1;
         totalLikes -= 1;
       }
+    }
+
+    function updateTotalLikes() {
       likesCard.textContent = likes;
       textTotalLikes.textContent = totalLikes;
       textTotalLikes.dataset.likes = totalLikes;
@@ -86,6 +90,7 @@ function mediaFactory(data, photographerName, index, totalLikes) {
     likesPriceBox.appendChild(textTotalLikes);
     iconCard.addEventListener("click", function () {
       toogleLike();
+      updateTotalLikes();
     });
 
     return article;

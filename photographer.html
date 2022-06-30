@@ -47,17 +47,18 @@
         <div class="options-container">
           <button
             type="button"
-            aria-expanded
+            aria-expanded="false"
             role="button"
             aria-haspopup="listbox"
-            class="bouton-filter .focused"
+            class="button-filter .focused"
           >
             <span class="sr-only">Trier par</span>
-            Popularité
+            <span class="button-filter-text">Popularité</span>
+            <i aria-hidden="true" class="fa-solid fa-angle-down"></i>
+            <i aria-hidden="true" class="fa-solid fa-angle-up hidden"></i>
           </button>
 
           <div class="filtres">
-            <span id="filtres--titre" class="sr-only">Trier par</span>
             <ul
               class="filtres--liste"
               tabindex="0"

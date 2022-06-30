@@ -11,29 +11,51 @@
     margin-left: 10px;
     min-height: 50px;
     position: relative;
-    width: 150px;
+    width: 130px;
     border-radius: 4px;
 }
 
-.bouton-filter {
+.button-filter {
     background: none;
     border: none;
     background-color: #901C1C;
     border-radius: 4px;
     color: #fff;
     font-size: 15px;
-    width: 150px;
+    width: 130px;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     padding: 15px 0 15px 10px;
     font-weight: 400;
     font-family: "DM Sans", sans-serif;
 }
 
+.button-filter:hover {
+    cursor: pointer;
+}
+
+.button-filter i {
+    position: absolute;
+    z-index: 25;
+    right: 0;
+    top: 0;
+    height: 50px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+}
+
+.hidden {
+    display: none!important;
+}
+
+
 .filtres {
     display: none;
     position: absolute;
-    width: 150px;
+    width: 130px;
     top: 0;
     z-index: 15;
     border-radius: 4px;
@@ -44,7 +66,7 @@
     padding: 0;
     margin: 0;
     background: #901C1C;
-    width: 150px;
+    width: 130px;
     font-size: 15px;
     font-weight: 400;
     color: #fff;
