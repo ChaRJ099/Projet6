@@ -4,7 +4,8 @@ let photographerName = "";
 const titleGallery = document.createElement("h2");
 let totalLikesElem = document.querySelector("#total-likes");
 let totalLikesValue = 0;
-let mediaToFilter = {};
+// eslint-disable-next-line no-unused-vars
+let mediaToFilter = {}; // Utilisée dans fonction displayData
 
 titleGallery.classList.add("sr-only");
 titleGallery.textContent = "Galerie photos";
