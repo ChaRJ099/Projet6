@@ -43,12 +43,13 @@
         </div>
       </section>
       <div class="listbox-container">
-        <span class="listbox-container-title">Trier par</span>
+        <span class="listbox-container-title" id="filtres--titre"
+          >Trier par</span
+        >
         <div class="options-container">
           <button
             type="button"
             aria-expanded="false"
-            role="button"
             aria-haspopup="listbox"
             class="button-filter .focused"
           >
@@ -63,11 +64,10 @@
               class="filtres--liste"
               tabindex="0"
               role="listbox"
-              aria-activedescendant
-              aria-selected
               aria-labelledby="filtres--titre"
             >
               <li
+                aria-selected="false"
                 data-id
                 data-value="likes"
                 class="filtres--liste_option"
@@ -76,6 +76,7 @@
                 Popularité
               </li>
               <li
+                aria-selected="false"
                 data-id
                 data-value="date"
                 class="filtres--liste_option"
@@ -84,6 +85,7 @@
                 Date
               </li>
               <li
+                aria-selected="false"
                 data-id
                 data-value="title"
                 class="filtres--liste_option"
@@ -97,6 +99,7 @@
       </div>
 
       <section class="photograph-gallery"></section>
+      <h2 class="sr-only">Galerie photos</h2>
       <div class="backdrop"></div>
       <div class="lightbox" tabindex="0">
         <div class="lightbox--content">

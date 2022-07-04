@@ -167,9 +167,8 @@ main {
 }
 
 .backdrop {
-    opacity: 1;
+    opacity: 0;
     display: none;
-    transition: all 250ms ease-in;
     z-index: 10;
     position: fixed;
     top: 0;
@@ -236,7 +235,6 @@ main {
     position: absolute;
     top: 0;
     right: 0;
-    /* cursor: pointer; */
     width: 30px;
     height: 30px;
 }
@@ -387,7 +385,6 @@ form input {
     align-items: flex-start;
     flex-direction: column;
     overflow: hidden;
-
 }
 
 .img-slide, .video-slide {

@@ -27,13 +27,10 @@ function headerPhotographerFactory(data) {
     locationCard.textContent = country + ", " + city;
     taglineCard.textContent = tagline;
 
-    // headerContent.appendChild(headerDescription);
     headerTitle.appendChild(nameCard);
     headerTitle.appendChild(locationCard);
     headerTitle.appendChild(taglineCard);
     headerPhoto.appendChild(img);
-
-    // return headerContent;
   }
   return { getUserPhotographCardDOM };
 }

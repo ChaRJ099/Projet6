@@ -1,6 +1,5 @@
 // eslint-disable-next-line no-unused-vars
 function mediaFactory(data, photographerName, index, totalLikes) {
-  // console.log(totalLikes);
   const { title } = data;
   let likes = data.likes;
 

@@ -5,33 +5,30 @@ const submitButton = document.querySelector(".submit-button");
 const backdrop = document.querySelector(".backdrop");
 const form = document.querySelector("#form");
 
-// const namePhotograph = document.querySelector(".gallery-title");
 function displayModal(elem) {
   elem.style.display = "flex";
+  backdrop.style.display = "block";
+  backdrop.style.opacity = "1";
   modal.focus();
 }
 
 function closeModal(elem) {
   elem.style.display = "none";
+  backdrop.style.display = "none";
+  backdrop.style.opacity = "0";
 }
 
 openForm.addEventListener("click", function () {
   displayModal(modal);
-  backdrop.style.display = "block";
-  backdrop.style.opacity = "1";
 });
 
 closeForm.addEventListener("click", function () {
   closeModal(modal);
-  backdrop.style.display = "none";
-  backdrop.style.opacity = "0";
   form.reset();
 });
 
 submitButton.addEventListener("click", function () {
   closeModal(modal);
-  backdrop.style.display = "none";
-  backdrop.style.opacity = "0";
   form.reset();
 });
 
