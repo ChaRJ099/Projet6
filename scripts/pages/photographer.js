@@ -1,4 +1,6 @@
+// Génère un objet URL
 const url = new URL(window.location.href);
+// On récupère le param ID de l'URL
 const photographerId = parseInt(url.searchParams.get("id"));
 let photographerName = "";
 const titleGallery = document.createElement("h2");
@@ -9,6 +11,8 @@ let mediaToFilter = {}; // Utilisée dans fonction displayData
 
 titleGallery.classList.add("sr-only");
 titleGallery.textContent = "Galerie photos";
+
+getPhotographer(photographerId);
 
 /**
  * Récupère le fichier JSON dans un objet data
@@ -23,13 +27,13 @@ async function getPhotographer() {
       displayData(data);
     });
 }
+
 /**
  *
  * @param {*} data
  * Data représente le contenu du fichier JSON
  * Affiche le photographer card et le contenu des médias
  */
-
 function displayData(data) {
   data.photographers.forEach((photographer) => {
     if (photographer.id === photographerId) {
@@ -44,8 +48,8 @@ function displayData(data) {
     }
   });
 }
-
-getPhotographer(photographerId);
+// Tri décroissant en fonction du nombre de likes par media
+// Affiche les media du plus liké au moins liké
 function compareLikes(a, b) {
   if (a.likes > b.likes) {
     return -1;
@@ -55,6 +59,8 @@ function compareLikes(a, b) {
   }
   return 0;
 }
+// Tri décroissant en fonction de la date de chaque media
+// Affiche les media du plus récent au moins récent
 function compareDate(a, b) {
   a.date = new Date(a.date);
   b.date = new Date(b.date);
@@ -67,6 +73,8 @@ function compareDate(a, b) {
   }
   return 0;
 }
+// Tri croissant en fonction de l'ordre alphabétique des titres des media
+// Affiche les media de A vers Z
 function compareTitle(a, b) {
   if (a.title < b.title) {
     return -1;

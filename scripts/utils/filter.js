@@ -3,8 +3,8 @@ const liste = document.querySelector(".filtres--liste");
 const options = document.querySelectorAll(".filtres--liste_option");
 const filtresBouton = document.querySelector(".button-filter");
 const filtresBoutonText = document.querySelector(".button-filter-text");
-const up = document.querySelector(".fa-angle-up");
-const down = document.querySelector(".fa-angle-down");
+const iconUp = document.querySelector(".fa-angle-up");
+const iconDown = document.querySelector(".fa-angle-down");
 
 const totalOptions = options.length;
 let elementFocused = 0;
@@ -12,14 +12,14 @@ let elementFocused = 0;
 filtresBouton.addEventListener("click", (e) => {
   e.preventDefault();
   e.stopPropagation();
-  console.log("test");
-  up.classList.remove("hidden");
-  down.classList.add("hidden");
+  iconUp.classList.remove("hidden");
+  iconDown.classList.add("hidden");
   filtres.style.display = "flex";
   filtresBouton.setAttribute("aria-expanded", "true");
   liste.focus();
 });
 
+// Au click sur l'option selectionné :
 options.forEach((option, index) => {
   option.dataset.id = index;
   option.addEventListener("click", () => {
@@ -75,6 +75,7 @@ function interactWithListbox() {
 
 function setElemFocused(index) {
   let elemSelected = document.querySelector(`[data-id="${index}"]`);
+  // Retire le focus du précédent élément sélectionné lorsqu'un nouvel élément a été selectionné
   if (liste.querySelector('[aria-selected="true"]')) {
     liste.querySelector('[aria-selected="true"]').classList.remove("focused");
     liste
@@ -86,24 +87,25 @@ function setElemFocused(index) {
   elemSelected.classList.add("focused");
   filtresBoutonText.textContent = elemSelected.textContent;
   filtresBouton.setAttribute("aria-expanded", "false");
-  up.classList.add("hidden");
-  down.classList.remove("hidden");
+  iconUp.classList.add("hidden");
+  iconDown.classList.remove("hidden");
 }
 
 document.addEventListener("click", (event) => {
+  // Rend invisible la liste de filtres si click en dehors de filtres--liste
   if (!event.target.closest(".filtres--liste")) {
     filtres.style.display = "none";
     filtresBouton.setAttribute("aria-expanded", "false");
-    up.classList.add("hidden");
-    down.classList.remove("hidden");
+    iconUp.classList.add("hidden");
+    iconDown.classList.remove("hidden");
   }
 });
 
-up.addEventListener("click", (e) => {
+iconUp.addEventListener("click", (e) => {
   e.preventDefault();
   e.stopPropagation();
   filtres.style.display = "none";
   filtresBouton.setAttribute("aria-expanded", "false");
-  up.classList.add("hidden");
-  down.classList.remove("hidden");
+  iconUp.classList.add("hidden");
+  iconDown.classList.remove("hidden");
 });
