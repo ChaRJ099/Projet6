@@ -197,7 +197,7 @@ main {
 /************************/
 
 #contact_modal {
-    z-index: 15;
+    z-index: 25;
     position: fixed;
     top: 0;
     margin: auto;
