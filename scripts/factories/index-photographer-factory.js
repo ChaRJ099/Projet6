@@ -17,12 +17,12 @@ function photographerFactory(data) {
 
     article.classList.add("artist-card-container");
     img.setAttribute("src", picture);
-    img.setAttribute("alt", name);
+    // img.setAttribute("alt", "Aller vers la galerie de" + " " + name);
     linkCard.setAttribute("href", photographerPage);
     linkCard.setAttribute("title", "Aller vers la galerie de" + " " + name);
 
     nameCard.textContent = name;
-    locationCard.textContent = country + ", " + city;
+    locationCard.textContent = city + ", " + country;
     taglineCard.textContent = tagline;
     priceCard.textContent = price + "€/jour";
 

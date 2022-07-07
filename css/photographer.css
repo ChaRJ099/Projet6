@@ -3,6 +3,10 @@ main {
     position: relative;
 }
 
+a:link {
+    text-decoration: none;
+}
+
 .photograph-header {
     display: flex;
     align-items: center;
@@ -31,6 +35,7 @@ main {
 
 .open-form {
     font-size: 20px;
+    font-weight: 700;
     font-weight: bold;
     color: white;
     padding: 11px;
@@ -50,14 +55,20 @@ main {
 .gallery-title {
     color: #D3573C;
     margin: 5px 0;
-    font-size: 50px;
+    font-size: 64px;
     font-weight: 400;
 }
 
 .photograph-header-title p:nth-child(2) {
     color: #901C1C;
-    font-size: 17px;
+    font-size: 24px;
+    font-weight: 400;
     margin: 0;
+}
+
+.photograph-header-title p:nth-child(3) {
+    font-size: 18px;
+    font-weight: 400;
 }
 
 .photograph-header-photo img {
@@ -80,6 +91,8 @@ main {
     right: 0;
     margin-right: 30px;
     padding: 15px;
+    font-size: 24px;
+    font-weight: 500;
 }
 
 .likes-box {
@@ -112,6 +125,8 @@ main {
 
 .media-card-container {
     min-width: 30%;
+    width: 400px;
+    max-height: 350px;
 }
 
 .img-small, .video-small {
@@ -149,10 +164,17 @@ main {
     margin-top: 10px;
 }
 
-.footer-card p, h2 {
+.footer-card p {
     margin: 0;
     color: #901C1C;
-    font-size: 15px;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.footer-card h2 {
+    margin: 0;
+    color: #901C1C;
+    font-size: 24px;
     font-weight: 400;
 }
 
@@ -209,11 +231,16 @@ main {
     justify-content: center;
 }
 
+#form label {
+    font-size: 36px;
+    font-weight: 400;
+}
+
 .modal {
     margin: 0 auto;
     border-radius: 5px;
     background-color: #DB8876;
-    width: 500px;
+    width: 600px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -257,8 +284,8 @@ main {
 }
 
 .modal-title, .name-contact {
-    font-size: 35px;
-    font-weight: normal;
+    font-size: 64px;
+    font-weight: 400;
     margin: 0;
     color: black;
 }
@@ -296,8 +323,8 @@ form input {
 }
 
 .submit-button {
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 18px;
+    font-weight: 700;
     color: white;
     padding: 11px;
     width: 170px;
@@ -313,7 +340,7 @@ form input {
 /************************/
 
 .lightbox {
-    z-index: 15;
+    z-index: 25;
     position: fixed;
     top: 0;
     margin: auto;
@@ -397,7 +424,7 @@ form input {
 .title-slide {
     display: flex;
     color: #901C1C;
-    font-size: 15px;
+    font-size: 24px;
     font-weight: 400;
     margin: 0;
 }
