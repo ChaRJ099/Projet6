@@ -5,6 +5,7 @@ const openForm = document.querySelector(".open-form");
 const submitButton = document.querySelector(".submit-button");
 const backdrop = document.querySelector(".backdrop");
 const form = document.querySelector("#form");
+const inputs = document.querySelectorAll(".input-contact");
 
 openForm.addEventListener("click", function () {
   displayModal(modal);
@@ -16,38 +17,9 @@ closeForm.addEventListener("click", function () {
 });
 
 submitButton.addEventListener("click", function () {
-  closeModal(modal);
-  form.reset();
-});
-
-//Form DOM elements
-const firstName = document.querySelector("#first");
-const lastName = document.querySelector("#last");
-const email = document.querySelector("#email");
-const message = document.querySelector("#message");
-
-firstName.addEventListener("input", function () {
-  setTimeout(() => {
-    console.log(this.value);
-  }, 1000);
-});
-
-lastName.addEventListener("input", function () {
-  setTimeout(() => {
-    console.log(this.value);
-  }, 1000);
-});
-
-email.addEventListener("input", function () {
-  setTimeout(() => {
-    console.log(this.value);
-  }, 1000);
-});
-
-message.addEventListener("input", function () {
-  setTimeout(() => {
-    console.log(this.value);
-  }, 1000);
+  inputs.forEach((input) => {
+    console.log(input.value);
+  });
 });
 
 function displayModal(elem) {

@@ -7,13 +7,21 @@ a:link {
     text-decoration: none;
 }
 
+.header-page {
+    width: 1340px;
+}
+
+.logo {
+    height: 50px;;
+}
+
 .photograph-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: #FAFAFA;
     height: 300px;
-    min-width: 900px;
+    width: 1240px;
     padding: 0 30px;
     margin-bottom: 20px;
 }
@@ -71,11 +79,15 @@ a:link {
     font-weight: 400;
 }
 
-.photograph-header-photo img {
+.photograph-header-photo {
     height: 200px;
     width: 200px;
     border-radius: 50%;
-    object-fit: cover;
+    overflow: hidden;
+}
+
+.photograph-header-photo img {
+    width: 100%;
 }
 
 .likes-price-box {
@@ -98,6 +110,8 @@ a:link {
 .likes-box {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
     order: 1;
     margin-right: 30px;
 }
@@ -109,6 +123,8 @@ a:link {
 
 .heart-icon {
     order: 2;
+    font-size: 21px;
+    
 }
 
 #price {
@@ -116,17 +132,24 @@ a:link {
 }
 
 .photograph-gallery {
-    margin-top: 110px;
-    min-width: 900px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 70px;
+    margin-top: 114px;
+    margin-bottom: 30px;
+    height: auto;
+    width: 1240px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* flex: 3; */
+    column-gap: 95px;
+    row-gap: 30px;
 }
 
 .media-card-container {
-    min-width: 30%;
-    width: 400px;
-    max-height: 350px;
+    /* width: 60%; */
+    width: 350px;
+    /* margin-right: 60px; */
+    /* margin-bottom: 10px; */
+    /* flex: 1; */
 }
 
 .img-small, .video-small {
@@ -140,7 +163,7 @@ a:link {
 .button-img-small, .button-video-small {
     display: flex;
     width: 100%;
-    height: 22vw;
+    height: 310px;
     overflow: hidden;
     padding: 0%;
     border: none;
@@ -153,15 +176,23 @@ a:link {
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
 }
 
-.footer-card, .footer-likes {
+.footer-likes {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
 }    
 
+.footer-likes .icon-card {
+    font-size: 21px;
+}
+
 .footer-card {
     margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
 }
 
 .footer-card p {
@@ -240,7 +271,7 @@ a:link {
     margin: 0 auto;
     border-radius: 5px;
     background-color: #DB8876;
-    width: 600px;
+    width: 700px;
     display: flex;
     flex-direction: column;
     align-items: center;

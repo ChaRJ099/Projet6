@@ -8,6 +8,7 @@ function photographerFactory(data) {
 
   function getUserIndexCardDOM() {
     const article = document.createElement("article");
+    const portraitContent = document.createElement("div");
     const img = document.createElement("img");
     const nameCard = document.createElement("h2");
     const taglineCard = document.createElement("p");
@@ -16,8 +17,9 @@ function photographerFactory(data) {
     const linkCard = document.createElement("a");
 
     article.classList.add("artist-card-container");
+    portraitContent.classList.add("portrait-content");
     img.setAttribute("src", picture);
-    // img.setAttribute("alt", "Aller vers la galerie de" + " " + name);
+    img.setAttribute("alt", "Aller vers la galerie de" + " " + name);
     linkCard.setAttribute("href", photographerPage);
     linkCard.setAttribute("title", "Aller vers la galerie de" + " " + name);
 
@@ -27,7 +29,8 @@ function photographerFactory(data) {
     priceCard.textContent = price + "€/jour";
 
     article.appendChild(linkCard);
-    linkCard.appendChild(img);
+    linkCard.appendChild(portraitContent);
+    portraitContent.appendChild(img);
     linkCard.appendChild(nameCard);
     article.appendChild(locationCard);
     article.appendChild(taglineCard);

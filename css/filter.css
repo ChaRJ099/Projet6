@@ -35,7 +35,7 @@
     cursor: pointer;
 }
 
-.button-filter i {
+.button-filter .fa-angle-down, .button-filter .fa-angle-up {
     position: absolute;
     z-index: 20;
     right: 0;
@@ -83,7 +83,7 @@
     position: relative;
     font-size: 18px;
     font-weight: 700;
-    height: 50px;
+    height: 54px;
     padding: 10px;
     width: 100%;
 }

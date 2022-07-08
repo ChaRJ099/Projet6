@@ -9,7 +9,7 @@ function mediaFactory(data, photographerName, index, totalLikes) {
     const footerLikes = document.createElement("div");
     const titleCard = document.createElement("h2");
     const likesCard = document.createElement("p");
-    const iconCard = document.createElement("i");
+    const iconCard = document.createElement("div");
     const likesPriceBox = document.querySelector(".likes-price-box");
     const nameSplited = photographerName.replace(" ", "-");
     let textTotalLikes = document.querySelector("#total-likes");
