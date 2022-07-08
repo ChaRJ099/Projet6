@@ -1,8 +1,21 @@
+/**
+ * Data représente les valeurs du fichier json
+ *
+ * @param {*} data
+ * @param {*} photographerName
+ * @param {*} index
+ * @param {*} totalLikes
+ * @returns
+ */
 // eslint-disable-next-line no-unused-vars
 function mediaFactory(data, photographerName, index, totalLikes) {
   const { title } = data;
   let likes = data.likes;
 
+  /**
+   * Fonction qui créer un modèle de card media
+   * @returns
+   */
   function getMediaCardDOM() {
     const article = document.createElement("article");
     const footerCard = document.createElement("div");
@@ -74,7 +87,9 @@ function mediaFactory(data, photographerName, index, totalLikes) {
         totalLikes -= 1;
       }
     }
-
+    /**
+     * Met à jour le total des likes
+     */
     function updateTotalLikes() {
       likesCard.textContent = likes;
       textTotalLikes.textContent = totalLikes;

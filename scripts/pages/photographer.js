@@ -107,6 +107,7 @@ function displayMedia(media, filter) {
 
   let mediaFiltered = [];
 
+  //Pour chaque element dans media, vérifie si l'element est associé au bon photographe et additionne les likes de l'élément aux likes totaux
   media.forEach((elem) => {
     if (elem.photographerId === photographerId) {
       let likes = elem.likes;

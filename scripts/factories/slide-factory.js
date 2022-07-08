@@ -1,7 +1,18 @@
+/**
+ * Data représente les valeurs du fichier json
+ *
+ * @param {*} data
+ * @param {*} photographerName
+ * @returns
+ */
 // eslint-disable-next-line no-unused-vars
 function slideFactory(data, photographerName) {
   const { title, image, video } = data;
 
+  /**
+   * Fonction qui  créer un modèle de slide
+   * @returns
+   */
   function getSlideCardDOM() {
     const titleSlide = document.createElement("p");
     const slide = document.createElement("div");

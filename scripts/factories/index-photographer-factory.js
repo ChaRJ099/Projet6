@@ -1,3 +1,9 @@
+/**
+ * Data représente les valeurs du fichier json
+ *
+ * @param {*} data
+ * @returns
+ */
 // eslint-disable-next-line no-unused-vars
 function photographerFactory(data) {
   const { name, portrait, city, country, tagline, price, id } = data;
@@ -6,6 +12,11 @@ function photographerFactory(data) {
 
   const photographerPage = `photographer.html?id=${id}`;
 
+  /**
+   * Fonction qui créer un modèle de card photographe de la page index
+   *
+   * @returns
+   */
   function getUserIndexCardDOM() {
     const article = document.createElement("article");
     const portraitContent = document.createElement("div");

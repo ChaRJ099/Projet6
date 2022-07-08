@@ -109,11 +109,23 @@
             &times;
           </button>
           <div class="lightbox--slide"></div>
-          <button type="button" class="prev" onclick="plusSlides(-1)">
+          <button
+            aria-controls="lightbox--slide"
+            aria-label="passer à l'image précédente"
+            type="button"
+            class="prev"
+            onclick="plusSlides(-1)"
+          >
             &#10094;
             <span class="sr-only">Panneau précédent</span>
           </button>
-          <button type="button" class="next" onclick="plusSlides(1)">
+          <button
+            aria-controls="lightbox--slide"
+            aria-label="passer à l'image suivante"
+            type="button"
+            class="next"
+            onclick="plusSlides(1)"
+          >
             &#10095;
             <span class="sr-only">Panneau suivant</span>
           </button>

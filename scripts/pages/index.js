@@ -1,3 +1,6 @@
+/**
+ * Récupère le fichier JSON dans un objet data
+ */
 async function getPhotographers() {
   const jsonFile = "data/photographers.json";
   fetch(jsonFile)
@@ -9,6 +12,11 @@ async function getPhotographers() {
     });
 }
 
+/**
+ * Affiche le photographer card
+ *
+ * @param {*} photographers
+ */
 function displayData(photographers) {
   const photographersSection = document.querySelector(".photographer_section");
 

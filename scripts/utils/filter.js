@@ -1,3 +1,4 @@
+// Elements du DOM
 const filtres = document.querySelector(".filtres");
 const liste = document.querySelector(".filtres--liste");
 const options = document.querySelectorAll(".filtres--liste_option");
@@ -5,10 +6,10 @@ const filtresBouton = document.querySelector(".button-filter");
 const filtresBoutonText = document.querySelector(".button-filter-text");
 const iconUp = document.querySelector(".fa-angle-up");
 const iconDown = document.querySelector(".fa-angle-down");
-
 const totalOptions = options.length;
 let elementFocused = 0;
 
+// Au clique sur l'élément : cache l'icone down, affiche up, affiche les filtres
 filtresBouton.addEventListener("click", (e) => {
   e.preventDefault();
   e.stopPropagation();
@@ -19,7 +20,7 @@ filtresBouton.addEventListener("click", (e) => {
   liste.focus();
 });
 
-// Au click sur l'option selectionné :
+// Au click sur l'option selectionnée : définit l'option sélectionnée, lance le filtrage des media et les affiche filtrés
 options.forEach((option, index) => {
   option.dataset.id = index;
   option.addEventListener("click", () => {
@@ -34,9 +35,13 @@ options.forEach((option, index) => {
 });
 
 // Code RGAA
-
+// Interaction au clavier
 interactWithListbox();
 
+/**
+ * Ecoute les touches clavier au focus dans la liste.
+ * Selectionne la bonne action en fonction des touches enfoncées.
+ */
 function interactWithListbox() {
   liste.addEventListener("keydown", (key) => {
     key.preventDefault();
@@ -73,6 +78,13 @@ function interactWithListbox() {
   });
 }
 
+/**
+ * Sélectionne l'élément qui sera focus en fonction du paramètre (index).
+ * Permet de gérer l'accessibilité de cet élément.
+ * Gère l'accessibilité du bouton de filtres et l'affichage des flèches down et up.
+ *
+ * @param {*} index
+ */
 function setElemFocused(index) {
   let elemSelected = document.querySelector(`[data-id="${index}"]`);
   // Retire le focus du précédent élément sélectionné lorsqu'un nouvel élément a été selectionné
@@ -91,6 +103,7 @@ function setElemFocused(index) {
   iconDown.classList.remove("hidden");
 }
 
+//Permet de cacher les filtres au click en dehors des filtres (sur tout le document)
 document.addEventListener("click", (event) => {
   // Rend invisible la liste de filtres si click en dehors de filtres--liste
   if (!event.target.closest(".filtres--liste")) {
@@ -101,6 +114,7 @@ document.addEventListener("click", (event) => {
   }
 });
 
+//Au click sur iconUp, cache les filtres
 iconUp.addEventListener("click", (e) => {
   e.preventDefault();
   e.stopPropagation();

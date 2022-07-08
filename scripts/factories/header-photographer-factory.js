@@ -1,9 +1,18 @@
+/**
+ * Data représente les valeurs du fichier json
+ *
+ * @param {*} data
+ * @returns
+ */
 // eslint-disable-next-line no-unused-vars
 function headerPhotographerFactory(data) {
   const { name, portrait, city, country, tagline, price } = data;
 
   const picture = `assets/photographers/${portrait}`;
 
+  /**
+   * Fonction qui créer un modèle de card photographe de la page photographer
+   */
   function getUserPhotographCardDOM() {
     const img = document.createElement("img");
     const headerTitle = document.querySelector(".photograph-header-title");
